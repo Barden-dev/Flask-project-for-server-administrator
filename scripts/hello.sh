@@ -1,0 +1,1 @@
+echo "Hello from web panel! Current date: $(date)" >> logs/log.txt

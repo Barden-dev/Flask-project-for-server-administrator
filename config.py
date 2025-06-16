@@ -1,0 +1,1 @@
+scripts_whitelist = ["hello"]

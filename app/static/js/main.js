@@ -8,7 +8,7 @@ function updateProgressBar(value) {
 let cpu_data = [];
 function get_system_info(){
     try { 
-    fetch('http://127.0.0.1:5000/api/v1/system')
+    fetch('http://localhost:5000/api/v1/system/stats')
     .then(response => response.json())
     .then((data) => {
         const cpu_load_element = document.getElementById('cpu_load')
@@ -67,3 +67,27 @@ const chart = new Chart(ctx, {
 });
 
 let update_chart = setInterval(() => chart.update(), 1000)
+
+
+document.getElementById("scriptForm").addEventListener("submit", async (e) => {
+    e.preventDefault(); 
+    
+    const formData = new FormData(e.target);
+    
+    try {
+      const response = await fetch("http://localhost:5000/api/v1/scripts/run", {
+        method: "POST",
+        body: formData
+      });
+      
+      const result = await response.json();
+      
+      if (result.status === "started") {
+        alert("Скрипт успешно запущен!");
+      } else {
+        alert("Скрипт не был запущен (нет в whitelist)");
+      }
+    } catch (error) {
+      alert("Ошибка при отправке запроса: " + error.message);
+    }
+  });
