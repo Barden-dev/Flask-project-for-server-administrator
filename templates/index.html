@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="UTF-8">
+   <title>Main Page</title>
+   <link href=" {{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1>Сведения о системе</h1>
+    <div id="system_info">
+        <p id = cpu_load>Загруженность ЦП, %: ${data.cpu}</p>
+        <div class="progress-bar">
+            <div class="progress-bar-inner"></div>
+        </div>  
+        <div style="width: 600px; height: 200px;">
+          <canvas id="myChart"></canvas>
+        </div>
+        <p id = mem_free>Свободно ОЗУ, МБ: ${data.ram_free}</p>
+        <p id = mem_used>Занято ОЗУ, МБ: ${data.ram_used}</p>
+    </div>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>

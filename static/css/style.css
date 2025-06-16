@@ -1,0 +1,23 @@
+p {
+  line-height: 0.5;
+  letter-spacing: 1px;
+}
+
+.progress-bar {
+      width: 150px;
+      height: 10px;
+      margin-left: 40px;
+      background-color: #f3f3f3;
+      position: relative;
+    }
+
+.progress-bar-inner {
+      height: 100%;
+      width: 0;
+      background-color: #4caf50;
+      position: absolute;
+}
+
+#cpu_load{
+  margin-left: 40px;
+}
