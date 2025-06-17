@@ -45,4 +45,4 @@ def container_action(id, action):
             except:
                 return "Error"
             return "restarted"
-    return "OK"    
+    return "ok"    
