@@ -6,26 +6,38 @@
    <link href=" {{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Сведения о системе</h1>
-    <div id="system_info">
-        <p id = cpu_load>Загруженность ЦП, %: ${data.cpu}</p>
-        <div class="progress-bar">
-            <div class="progress-bar-inner"></div>
-        </div>  
-        <div style="width: 600px; height: 200px;">
-          <canvas id="myChart"></canvas>
-        </div>
-        <p id = mem_free>Свободно ОЗУ, МБ: ${data.ram_free}</p>
-        <p id = mem_used>Занято ОЗУ, МБ: ${data.ram_used}</p>
-    </div>
-    
+    <div class="page-container">
+      <div id="system_info">
+          <h1>Сведения о системе</h1>
+          <p id = cpu_load>Загруженность ЦП, %: ${data.cpu}</p>
+          <div class="progress-bar">
+              <div class="progress-bar-inner"></div>
+          </div>  
+          <div style="width: 600px; height: 200px;">
+            <canvas id="myChart"></canvas>
+          </div>
+          <p id = mem_free>Свободно ОЗУ, МБ: ${data.ram_free}</p>
+          <p id = mem_used>Занято ОЗУ, МБ: ${data.ram_used}</p>
+      </div>
 
-    <form id="scriptForm">
-      <input type="hidden" name="script" value="hello" />
-      <button type="submit">Запустить hello.sh</button>
-    </form>
-    
-    
+      <div class="right-side">
+        <form id="scriptForm">
+          <input type="hidden" name="script" value="hello" />
+          <button type="submit">Запустить hello.sh</button>
+        </form>
+        <br>
+
+        <h3 align="center">Список контейнеров</h3>
+        <div id="items_container">
+        </div>
+        <div id="containerModal" class="modal" style="display: none;">     
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Свойства контейнера</h2>
+            <div id="containerDetails"></div>
+          </div>
+        </div>
+      </div>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
