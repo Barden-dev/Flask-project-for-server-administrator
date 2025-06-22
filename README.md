@@ -1,7 +1,10 @@
-# MyFlaskProject
-My project made on flask
+# Flask project made for server administrating
+Simple project contains web-panel and Telegram bot.
 
-For me, but i dont know, maybe someone really need this project :)
+In web-panel you can check stats, run scripts and manage docker containers on server.
 
+In TG-bot you can also check stats and get a notification's when script from web-panel started.
 
-Simple and simple
+These functions realized as API
+
+To start apps, just run in python <b>run.py</b> and <b>run_bot.py</b>
